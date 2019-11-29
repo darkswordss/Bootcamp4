@@ -7,6 +7,16 @@
       "resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-4.3.1.tgz",
       "integrity": "sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag=="
     },
+    "scripts": {
+    "test": "mocha server/tests",
+    "install-all": "concurrently \"npm install\" \"cd client && npm install\"",
+    "client": "cd client && npm start",
+    "server": "nodemon server/server.js",
+    "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
+    "build": "cd client && npm build",
+    "start": "node server/server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
     "jquery": {
       "version": "1.9.1",
       "resolved": "https://registry.npmjs.org/jquery/-/jquery-1.9.1.tgz",
